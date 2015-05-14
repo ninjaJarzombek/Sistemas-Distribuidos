@@ -1,0 +1,32 @@
+<head>
+  <title>Lista de tareas</title>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+    <h1>Lista de tareas</h1>
+
+    <!-- Agregar un formulario después de H1 -->
+    <form class="new-task">
+      <input type="text" name="text" placeholder="Escribir para agregar nuevas tareas"/>
+    </form>
+  </header>
+
+    <ul>
+      {{#each tasks}}
+        {{> task}}
+      {{/each}}
+    </ul>
+  </div>
+</body>
+
+<template name="task">
+  <li class="{{#if checked}}checked{{/if}}">
+    <button class="delete">&times;</button>
+
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+
+    <span class="text">{{text}}</span>
+  </li>
+</template>
